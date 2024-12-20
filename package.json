@@ -4,19 +4,48 @@
   "repository": "https://github.com/graphprotocol/uniswap-v3-subgraph",
   "license": "GPL-3.0-or-later",
   "scripts": {
+    "comment-lint": "代码检查并自动修复",
     "lint": "eslint . --ext .ts --fix",
+    
+    "comment-build": "生成类型并构建子图",
     "build": "run-s codegen && graph build",
+    
+    "comment-build-docker": "使用 Docker 构建镜像",
     "build:docker": "docker build -t matchstick .",
+    
+    "comment-build-only": "仅构建子图",
     "buildonly": "graph build",
+    
+    "comment-deploy-alchemy": "部署到 Alchemy 节点",
     "deploy:alchemy": "graph deploy --node https://subgraphs.alchemy.com/api/subgraphs/deploy --ipfs https://ipfs.satsuma.xyz",
+    
+    "comment-codegen": "生成类型定义",
     "codegen": "graph codegen --output-dir src/types/",
+    
+    "comment-test": "运行测试",
     "test": "graph test -d",
+    
+    "comment-test-no-tty": "在 Docker 中运行测试",
     "test:no-tty": "docker run -i --rm --mount type=bind,source=$INIT_CWD,target=/matchstick matchstick",
+    
+    "comment-create-local": "创建本地子图",
     "create-local": "graph create ianlapham/uniswap-v3 --node http://127.0.0.1:8020",
-    "deploy-local": "graph deploy ianlapham/uniswap-v3 --debug --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
+    "create-test": "graph create ianlapham/uniswap-v3-test --node http://8.214.55.62:8020",
+    
+    "comment-deploy-local": "本地部署子图",
+    "deploy-local": "graph deploy  ianlapham/uniswap-v3  --ipfs http://localhost:5001 --node http://127.0.0.1:8020 --version-label v0.0.1 ",
+    "deploy-test": "graph deploy  ianlapham/uniswap-v3-test  --ipfs http://8.214.55.62:8021 --node http://8.214.55.62:8020 --version-label v0.0.1 ",
+    
+    "comment-deploy": "部署到主网",
     "deploy": "graph deploy ianlapham/uniswap-v3-subgraph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/ --debug",
-    "deploy-dev": "graph deploy sommelier/uniswap-v3 --ipfs http://35.197.14.14:5000/ --node http://35.197.14.14:8020/ --debug",
+    
+    "comment-deploy-dev": "部署到开发环境",
+    "deploy-dev": "graph deploy sommelier/uniswap-v3 --ipfs http://35.197.14.14:5000/ --node http://8.214.55.62:8020/ --debug",
+    
+    "comment-deploy-staging": "部署到暂存环境",
     "deploy-staging": "graph deploy $THE_GRAPH_GITHUB_USER/$THE_GRAPH_SUBGRAPH_NAME /Uniswap --ipfs https://api.staging.thegraph.com/ipfs/ --node https://api.staging.thegraph.com/deploy/",
+    
+    "comment-watch-local": "监视本地部署",
     "watch-local": "graph deploy ianlapham/uniswap-v3 --watch --debug --node http://127.0.0.1:8020/ --ipfs http://localhost:5001"
   },
   "devDependencies": {
