@@ -9,11 +9,11 @@ features:
 dataSources:
   - kind: ethereum/contract
     name: Factory
-    network: sepolia
+    network: deepbrainchain-testnet
     source:
-      address: "0x0227628f3F023bb0B980b67D528571c95c6DaC1c"
+      address: "0xAc2366109dA0B0aFd28ecC2d2FE171c78594d113"
       abi: Factory
-      startBlock: 3518270
+      startBlock: 1322972
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -39,7 +39,7 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: Pool
-    network: sepolia
+    network: deepbrainchain-testnet
     source:
       abi: Pool
     mapping:
