@@ -33,7 +33,7 @@ const ZKSYNC_ERA_NETWORK_NAME = 'zksync-era'
 const ZORA_MAINNET_NETWORK_NAME = 'zora-mainnet'
 const WORLDCHAIN_MAINNET_NETWORK_NAME = 'worldchain-mainnet'
 const SEPOLIA_NETWORK_NAME = 'sepolia'
-
+const DEEPBRAINCHAIN_TESTNET_NETWORK_NAME = 'deepbrainchain-testnet'
 // Note: All token and pool addresses should be lowercased!
 export class SubgraphConfig {
   // deployment address
@@ -456,7 +456,75 @@ export function getSubgraphConfig(): SubgraphConfig {
       poolsToSkip: [],
       poolMappings: [],
     }
-  } else {
+  } else if (selectedNetwork == DEEPBRAINCHAIN_TESTNET_NETWORK_NAME) {
+    return {
+      factoryAddress: '0xAc2366109dA0B0aFd28ecC2d2FE171c78594d113', // v3CoreFactoryAddress
+      stablecoinWrappedNativePoolAddress: '0x0000000000000000000000000000000000000000', // 暂时用零地址，因为还没有稳定币池子
+      stablecoinIsToken0: true,
+      wrappedNativeAddress: '0x85B24b3517E3aC7bf72a14516160541A60cFF19d', // 需要填入你的 WETH 合约地址
+      minimumNativeLocked: BigDecimal.fromString('1'),
+      stablecoinAddresses: [], // 暂时为空，因为还没有稳定币
+      whitelistTokens: [
+        // 需要填入你想要支持的代币地址
+          '0xC260ed583545d036ed99AA5C76583a99B7E85D26',
+          '0x2d8c44616e04B7F131bEee1e9b878765356F56f9',
+          '0x82b1a3d719dDbFDa07AD1312c3063a829e1e66F1',
+          '0x78a880829d0Fc3B1C52B41Ca4D0646Bf8f781b7D',
+          '0xfabDca15b28d8437C148EcC484817Fc28a85aDB8',
+          '0x15Bfd6213E2AAAe94884c0Decf1242E069800305',
+          '0x4aF0632B0E63EE55e69e76c912E376731EECdbc5',
+          '0xC8b47112D5413c6d06D4BB7573fD903908246614',
+          '0x337CF3C53E7f218Ed375292a125549e022AF9d79',
+          '0xb63F3fC79284d9e90FE77721dAc419374266B689',
+          '0xd6a0843e7c99357ca5bA3525A0dB92F8E5817c07',
+          '0xdf38EB62eF4e3127130c7Ebc0C0D796feD3afC1b',
+          '0x334ad2463A29Bf81c7f9540c321D082B8290dA66',
+          '0x6E981d070f193CcEE1829ad2AFaA7BCe24AD0aDc',
+          '0xb22DDA87BA651d50A6d970bB2A449801349132D6',
+          '0x624EB4E6e8A9ED8CC31b4Bb8d5532C27118A77CB',
+          '0x21e5E46FE41233c9D3290dA528BdB5d5176099C1',
+          '0xb6a54e4C71E4A50c7de8FC4624e03903bDc0b919',
+          '0x6e3c821b32950ABcf44bCE71c7f905a3cB960113',
+          '0x9dbbeB8df0717c0a473A89d7Cce868537d0520a2',
+          '0x8594B867E440e57143301e09fbE22ed97bC3f31A',
+          '0x8C5Ea6c10cFEAd7ed25ed262010d509c939BfF4e',
+          '0xda8a1C530502730a83f37167C14e4dC3d67b8d0b',
+          '0x15b371D8734f82A1eb3fCa713F86210E50600647',
+          '0x294c664f6D63bd1521231a2EeFC26d805ce00a08',
+          '0x2981f97c4885432a7ed53e33E97cCDC40FF068D1',
+          '0x644feB1f2AC36FCC20B7aCa8BDeb0b405cA1593F',
+          '0x71B0e69E6b15893944776cFd2026Fa32e395a333',
+          '0x89622985fd3Fbce3278eC9Dce69DDDAf4Dc53030',
+          '0x9594dD43FC2C0FF6e9c995076492a1F5d2197AF8',
+          '0xA3f8106a82B000358130faF16114D93D4C4Be33c',
+          '0xab17A2e15096D2101092b44388570201524a5785',
+          '0xB009c845233CcFB5d0d7c54163ABA7ea5d090e21',
+          '0xb41bBB9B0352bA8035aCDc0b57db61471Fd856b5',
+          '0xb854Fcc77F5F1513CFdf6B87aCF7817A3bb2Fb41',
+          '0xCE2E884eDcB8d35329f352f5827ba9a7d0B16c77',
+          '0x083Bb9A599854fA7476834Abf77a377F6CdEAE8d',
+          '0x25d380504AecFFB8A26dC2Cc141c0f440eB3Fa49',
+          '0x34d2eAf98b9B3A7FCA03C8Cdeb3D9CC901817C54',
+          '0x424293D0ABe225C7fF899D86944e727E41CE3F78',
+          '0x5D6c2b16aE2dfDC1aDcccBAF34fc223A31E8005a',
+          '0x63542d815d0aF523E3F29B61C9c09eE77D8D6A4e',
+          '0x9b657edcB66743B559D746Ef4e02868cdB6910F9',
+          '0xA7CF7f66BE00dF66b2541172f9731caB66cf5659',
+          '0x0D803B0d5558b3c7E1689f21A36ccF807e5a605E',
+          '0x169343c310822b15BAC19F9Cd5aD3C7041575f94',
+          '0x1bff6A4AfA8940195AE407A5Ebef37E9b98d1CC4',
+          '0x2D49f0ff98511BFa559e8B9272E67188053F82c6',
+          '0x3F4041368D88CABf354763f9b496044CaD52F050',
+          '0x5ee7F119B15F7F1790b2Fd3367888C47CEE206e4'
+        
+      ],
+      tokenOverrides: [],
+      poolsToSkip: [],
+      poolMappings: [],
+    }
+  }
+
+  else {
     throw new Error('Unsupported Network')
   }
 }
