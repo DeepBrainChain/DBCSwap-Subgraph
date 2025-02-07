@@ -34,6 +34,7 @@ const ZORA_MAINNET_NETWORK_NAME = 'zora-mainnet'
 const WORLDCHAIN_MAINNET_NETWORK_NAME = 'worldchain-mainnet'
 const SEPOLIA_NETWORK_NAME = 'sepolia'
 const DEEPBRAINCHAIN_TESTNET_NETWORK_NAME = 'deepbrainchain-testnet'
+const DEEPBRAINCHAIN_MAINNET_NETWORK_NAME = 'deepbrainchain-mainnet'
 // Note: All token and pool addresses should be lowercased!
 export class SubgraphConfig {
   // deployment address
@@ -517,6 +518,21 @@ export function getSubgraphConfig(): SubgraphConfig {
           '0x3F4041368D88CABf354763f9b496044CaD52F050',
           '0x5ee7F119B15F7F1790b2Fd3367888C47CEE206e4'
         
+      ],
+      tokenOverrides: [],
+      poolsToSkip: [],
+      poolMappings: [],
+    }
+  } else if (selectedNetwork == DEEPBRAINCHAIN_MAINNET_NETWORK_NAME) {
+    return {
+      factoryAddress: '0x34A7E09D8810d2d8620700f82b471879223F1628', // v3CoreFactoryAddress
+      stablecoinWrappedNativePoolAddress: '0x0000000000000000000000000000000000000000', // 暂时用零地址，因为还没有稳定币池子
+      stablecoinIsToken0: true,
+      wrappedNativeAddress: '0xD7EA4Da7794c7d09bceab4A21a6910D9114Bc936', // 需要填入你的 WETH 合约地址
+      minimumNativeLocked: BigDecimal.fromString('1'),
+      stablecoinAddresses: [], // 暂时为空，因为还没有稳定币
+      whitelistTokens: [
+        // 需要填入你想要支持的代币地址
       ],
       tokenOverrides: [],
       poolsToSkip: [],

@@ -9,7 +9,7 @@ features:
 dataSources:
   - kind: ethereum/contract
     name: Factory
-    network: deepbrainchain-testnet
+    network: deepbrainchain-mainnet
     source:
       address: "0xAc2366109dA0B0aFd28ecC2d2FE171c78594d113"
       abi: Factory
@@ -39,7 +39,7 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: Pool
-    network: deepbrainchain-testnet
+    network: deepbrainchain-mainnet
     source:
       abi: Pool
     mapping:
