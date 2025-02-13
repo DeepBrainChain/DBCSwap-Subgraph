@@ -13,9 +13,14 @@
     "test": "graph test ",
     "test:no-tty": "docker run -i --rm --mount type=bind,source=$INIT_CWD,target=/matchstick matchstick",
     "create-local": "graph create ianlapham/uniswap-v3 --node http://127.0.0.1:8020",
-    "create-test": "graph create ianlapham/uniswap-v3-test --node http://8.214.55.62:8020",
     "deploy-local": "graph deploy ianlapham/uniswap-v3 --ipfs http://localhost:5001 --node http://127.0.0.1:8020  --version-label v0.0.1",
-    "deploy-test": "graph deploy  ianlapham/uniswap-v3-test  --ipfs http://8.214.55.62:8021 --node http://8.214.55.62:8020 --version-label v0.0.1 ",
+
+    "create-test": "graph create ianlapham/uniswap-v3-test --node http://8.214.55.62:8020",
+    "deploy-test": "cp subgraph-testnet.yaml subgraph.yaml && graph deploy ianlapham/uniswap-v3-test --ipfs http://8.214.55.62:8021 --node http://8.214.55.62:8020 --version-label v0.0.1",
+
+    "create-mainnet": "graph create ianlapham/dbcswap-v3-mainnet --node http://8.214.55.62:8034",
+    "deploy-mainnet": "cp subgraph-mainnet.yaml subgraph.yaml && graph deploy ianlapham/dbcswap-v3-mainnet --ipfs http://8.214.55.62:8031 --node http://8.214.55.62:8034 --version-label v0.0.1",
+
 
     "deploy": "graph deploy ianlapham/uniswap-v3-subgraph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/ --debug",
     "deploy-dev": "graph deploy sommelier/uniswap-v3 --ipfs http://35.197.14.14:5000/ --node http://35.197.14.14:8020/ --debug",
