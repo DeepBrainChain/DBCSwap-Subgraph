@@ -10,11 +10,11 @@ features:
 dataSources:
   - kind: ethereum/contract
     name: Factory
-    network: deepbrainchain-testnet
+    network: deepbrainchain-mainnet
     source:
-      address: "0x0227628f3F023bb0B980b67D528571c95c6DaC1c"
+      address: "0x34A7E09D8810d2d8620700f82b471879223F1628"
       abi: Factory
-      startBlock: 1
+      startBlock: 825502
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -40,7 +40,7 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: Pool
-    network: deepbrainchain-testnet
+    network: deepbrainchain-mainnet
     source:
       abi: Pool
     mapping:

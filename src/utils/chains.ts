@@ -33,6 +33,7 @@ const ZKSYNC_ERA_NETWORK_NAME = 'zksync-era'
 const ZORA_MAINNET_NETWORK_NAME = 'zora-mainnet'
 const WORLDCHAIN_MAINNET_NETWORK_NAME = 'worldchain-mainnet'
 const SEPOLIA_NETWORK_NAME = 'sepolia'
+const DEEPBRAINCHAIN_MAINNET_NETWORK_NAME = 'deepbrainchain-mainnet'
 
 // Note: All token and pool addresses should be lowercased!
 export class SubgraphConfig {
@@ -451,6 +452,21 @@ export function getSubgraphConfig(): SubgraphConfig {
         '0x1c7d4b196cb0c7b01d743fbc6116a902379c7238', // USDC
         '0xaa8e23fb1079ea71e0a56f48a2aa51851d8433d0', // USDT
         '0x1f9840a85d5af5bf1d1762f925bdaddc4201f984', // UNI,
+      ],
+      tokenOverrides: [],
+      poolsToSkip: [],
+      poolMappings: [],
+    }
+  } else if (selectedNetwork == DEEPBRAINCHAIN_MAINNET_NETWORK_NAME) {
+    return {
+      factoryAddress: '0x34A7E09D8810d2d8620700f82b471879223F1628', // v3CoreFactoryAddress
+      stablecoinWrappedNativePoolAddress: '0x0000000000000000000000000000000000000000', // 暂时用零地址，因为还没有稳定币池子
+      stablecoinIsToken0: true,
+      wrappedNativeAddress: '0xD7EA4Da7794c7d09bceab4A21a6910D9114Bc936', // 需要填入你的 WETH 合约地址
+      minimumNativeLocked: BigDecimal.fromString('1'),
+      stablecoinAddresses: [], // 暂时为空，因为还没有稳定币
+      whitelistTokens: [
+        // 需要填入你想要支持的代币地址
       ],
       tokenOverrides: [],
       poolsToSkip: [],
